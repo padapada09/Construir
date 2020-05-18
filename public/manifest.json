@@ -1,21 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Construir",
+  "name": "Construir Económicas",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-19/s320x320/69704097_472274536656052_7729487183291088896_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_ohc=m_RXwj1M_BQAX8vB7kW&oh=b471e86284e33321e565fb43dd4d0b33&oe=5EED6166",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",

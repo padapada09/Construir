@@ -7,7 +7,6 @@ export const usePublications = () =>
     const [publications, setPublications] = useState({loading: true});
     
     
-    
     useEffect(() =>
     {
         db('Publicacion').select({

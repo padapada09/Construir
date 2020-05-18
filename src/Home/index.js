@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Spinner, Col, Card } from 'react-bootstrap';
 import { usePublications } from './usePublications';
 
-const Home = ({filter}) =>
+const Home = ({filter, setTitle}) =>
 {
 
     const publications = usePublications();
+
+    useEffect(() => { setTitle("Construir")},[]);
 
     if (publications.loading) return (
         <Container fluid style={{padding: 0}}>
