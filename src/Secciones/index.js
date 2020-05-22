@@ -23,7 +23,7 @@ const Secciones = ({filter, setTitle}) =>
     if (!id) return sections.filter(section =>  !filter || section.title.includes(filter)).map((section, index) =>
         <Col key={index} style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}} xs={12} md={6} lg={4}>
             <Link to={`/Secciones/${section.id}`} style={{width: '90%', textDecoration: 'none'}}>
-                <Card style={{ width: '100%'}}>
+                <Card style={{ height: '100%'}}>
                     <Card.Img variant="top" src={section.img[0].url} />
                     <Card.Body>
                     <Card.Title style={{textAlign: 'left'}}>{section.title}</Card.Title>
@@ -34,7 +34,7 @@ const Secciones = ({filter, setTitle}) =>
         </Col>
     )
 
-    return publications.filter(publication =>  !filter || publication.title.includes(filter)).map((publication, index) =>
+    if (publications.length) return publications.filter(publication =>  !filter || publication.title.includes(filter)).map((publication, index) =>
         <Col key={index} style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}} xs={12} md={6} lg={4}>
             <Card style={{ width: '90%'}} onClick={() => window.location.href = `/Publicacion/${publication.document}`} as="button">
                 <Card.Img variant="top" src={publication.img.url} />
@@ -44,6 +44,12 @@ const Secciones = ({filter, setTitle}) =>
                 </Card.Body>
             </Card>
         </Col>
+    );
+
+    return (
+        <div style={{width: '100%', padding: '20px'}}>
+            <h2>Parece que aún no hay articulos en esta sección</h2>
+        </div>
     )
 
 }

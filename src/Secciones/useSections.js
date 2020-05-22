@@ -12,7 +12,9 @@ export const useSections = () =>
         db('Seccion').select({
             maxRecords: 10,
             view: "Grid view"
-        }).eachPage((records) => setSections(records.map(record => ({...record.fields, id: record.id}))),(err) => err && console.error(err));
+        }).eachPage((records) => {
+            setSections(records.map(record => ({...record.fields, id: record.id})));
+        },(err) => err && console.error(err));
     },[]);
 
     return sections;

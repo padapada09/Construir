@@ -10,7 +10,7 @@ const App = () =>
 {
 
   const [search, setSearch] = useState(null);
-  const [title, setTitle] = useState("Construir");
+  const [title, setTitle] = useState("Camino al puente");
   const [collapsed, collapse] = useState(false);
 
   return (
@@ -20,8 +20,8 @@ const App = () =>
           <Col xs={12}>
             <Navbar bg="light" expand="lg" onToggle={() => collapse(!collapsed)} expanded={collapsed}>
               <Navbar.Brand href="/" style={{display: 'flex', alignItems: 'center'}}>
-                <img style={{width: '3rem', height: '3rem', borderRadius: '10rem'}} src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-19/s320x320/69704097_472274536656052_7729487183291088896_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_ohc=m_RXwj1M_BQAX8vB7kW&oh=b471e86284e33321e565fb43dd4d0b33&oe=5EED6166"/>
-                <h1 style={{margin: '0px', flex: 1, textAlign: 'left', paddingLeft: '20px'}}>{window.innerWidth < 600 ? title : 'Construir'}</h1>
+                <img style={{width: '3rem', height: '3rem', borderRadius: '10rem'}} src="https://images.assetsdelivery.com/compings_v2/peshkova/peshkova1606/peshkova160600848.jpg"/>
+                <h1 style={{margin: '0px', flex: 1, textAlign: 'left', paddingLeft: '20px'}}>{window.innerWidth < 600 ? title : 'Camino al puente'}</h1>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

@@ -1,0 +1,62 @@
+h1 {
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+p {
+    font-size: medium;
+}
+
+ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+img {
+
+    &::after {
+        content: "<br/>";
+    }
+}
+
+.Foto {
+    max-height: 50px;
+    margin-right: 10px;
+    border-radius: 25px;
+}
+
+.Perfil {
+    display: flex;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: antiquewhite;
+    border-radius: 10px;
+
+    @media screen and (max-width: 1100px) {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+}
+
+.Nombre {
+    font-weight: bold;
+}
+
+.Autores {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

@@ -17,8 +17,8 @@ export const usePublications = (section_id) =>
             }).eachPage((records) =>
             {
                 return setPublications(
-                    records.map(record => ({...record.fields, img: record.fields.img[0]}))
-                    .filter(publication => publication.section[0] === section_id)
+                    records.map(record => ({...record.fields, img: record.fields.Imagen[0]}))
+                    .filter(publication => publication.Seccion.includes(section_id))
                 )
             },(err) => err && console.error(err));
         } else {

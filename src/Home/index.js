@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Spinner, Col, Card } from 'react-bootstrap';
 import { usePublications } from './usePublications';
 
@@ -7,7 +8,7 @@ const Home = ({filter, setTitle}) =>
 
     const publications = usePublications();
 
-    useEffect(() => { setTitle("Construir")},[]);
+    useEffect(() => { setTitle("Camino al puente")},[]);
 
     if (publications.loading) return (
         <Container fluid style={{padding: 0}}>
@@ -17,15 +18,17 @@ const Home = ({filter, setTitle}) =>
         </Container>
     )
     
-    return publications.filter(publication =>  !filter || publication.title.includes(filter)).map((publication, index) =>
+    return publications.filter(publication =>  !filter || publication.Titulo.includes(filter)).map((publication, index) =>
         <Col key={index} style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}} xs={12} md={6} lg={4}>
-            <Card style={{ width: '90%'}} onClick={() => window.location.href = `/Publicacion/${publication.document}`} as="button">
-                <Card.Img variant="top" src={publication.img.url} />
-                <Card.Body>
-                <Card.Title style={{textAlign: 'left'}}>{publication.title}</Card.Title>
-                <Card.Text style={{textAlign: 'justify'}}>{publication.description}</Card.Text>
-                </Card.Body>
-            </Card>
+            <Link to={`/Publicacion/${publication.Documento}`} style={{width: '90%', textDecoration: 'none'}}>
+                <Card style={{ height: '100%'}}>
+                    <Card.Img variant="top" src={publication.Imagen.url} style={{maxHeight: '20rem'}}/>
+                    <Card.Body>
+                        <Card.Title style={{textAlign: 'left'}}>{publication.Titulo}</Card.Title>
+                        <Card.Text style={{textAlign: 'justify'}}>{publication.Descripcion}</Card.Text>
+                    </Card.Body>
+                </Card>
+            </Link>
         </Col>
     )
 
