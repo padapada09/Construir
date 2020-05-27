@@ -12,7 +12,9 @@ export const usePublications = () =>
         db('Publicacion').select({
             maxRecords: 10,
             view: "Grid view"
-        }).eachPage((records) => setPublications(records.map(record => ({...record.fields, Imagen: record.fields.Imagen[0]}))),(err) => err && console.error(err));
+        }).eachPage((records) => {
+            setPublications(records.map(record => ({...record.fields, Imagen: record.fields.Imagen[0]})))
+        },(err) => err && console.error(err));
     },[]);
 
     return publications;

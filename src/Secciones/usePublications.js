@@ -14,15 +14,15 @@ export const usePublications = (section_id) =>
             db('Publicacion').select({
                 maxRecords: 10,
                 view: "Grid view"
-            }).eachPage((records) =>
-            {
+            }).eachPage((records) => {
                 return setPublications(
-                    records.map(record => ({...record.fields, img: record.fields.Imagen[0]}))
+                    records
+                    .map(record => ({...record.fields, Imagen: record.fields.Imagen[0]}))
                     .filter(publication => publication.Seccion.includes(section_id))
                 )
             },(err) => err && console.error(err));
         } else {
-            setPublications([]);
+            setPublications(null);
         }
     },[section_id]);
 
