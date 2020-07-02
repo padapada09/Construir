@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Airtable from 'airtable';
 
 export const usePublications = (section_id) =>
@@ -10,9 +10,9 @@ export const usePublications = (section_id) =>
     
     useEffect(() =>
     {
+        setPublications({loading: true});
         if (section_id) {
             db('Publicacion').select({
-                maxRecords: 10,
                 view: "Grid view"
             }).eachPage((records) => {
                 return setPublications(
@@ -24,7 +24,7 @@ export const usePublications = (section_id) =>
         } else {
             setPublications(null);
         }
-    },[section_id]);
+    },[section_id,db]);
 
     return publications;
 }

@@ -4,9 +4,6 @@ const app = express();
 const publicPath = path.join(__dirname, '..', 'build');
 const port = process.env.PORT || 3000;
 app.use(express.static(publicPath));
-app.get('*', (req, res) => {
-   res.sendFile(path.join(publicPath, 'index.html'));
-});
-app.listen(port, () => {
-   console.log('Server is up!');
-});
+app.get("*", (req, res, next) => res.redirect("https://" + req.headers.host + "/" + req.path));
+app.get('*', (req, res) => res.sendFile(path.join(publicPath, 'index.html')));
+app.listen(port, () => console.log('Server is up!'));

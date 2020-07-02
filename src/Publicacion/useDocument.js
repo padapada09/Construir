@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Airtable from 'airtable';
 
 export const useDocument = (id) =>
@@ -13,7 +13,7 @@ export const useDocument = (id) =>
             if (err) console.error(err);
             else setDocument(record.fields);
         });
-    },[]);
+    },[db,id]);
 
     return document;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Airtable from 'airtable';
 
 export const useSections = () =>
@@ -10,12 +10,11 @@ export const useSections = () =>
     useEffect(() =>
     {
         db('Seccion').select({
-            maxRecords: 10,
             view: "Grid view"
         }).eachPage((records) => {
             setSections(records.map(record => ({...record.fields, id: record.id})));
         },(err) => err && console.error(err));
-    },[]);
+    },[db]);
 
     return sections;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Airtable from 'airtable';
 
 export const usePublications = () =>
@@ -10,12 +10,11 @@ export const usePublications = () =>
     useEffect(() =>
     {
         db('Publicacion').select({
-            maxRecords: 10,
             view: "Grid view"
         }).eachPage((records) => {
             setPublications(records.map(record => ({...record.fields, Imagen: record.fields.Imagen[0]})))
         },(err) => err && console.error(err));
-    },[]);
+    },[db]);
 
     return publications;
 }

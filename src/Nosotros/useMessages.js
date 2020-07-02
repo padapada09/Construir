@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Airtable from 'airtable';
 
 export const useMessages = () =>
@@ -9,10 +9,9 @@ export const useMessages = () =>
     useEffect(() =>
     {
         db('Nosotros').select({
-            maxRecords: 10,
             view: "Grid view"
         }).eachPage((records) => setMessages(records.map(record => (record.fields))),(err) => err && console.error(err));
-    },[]);
+    },[db]);
 
     return messages;
 }
